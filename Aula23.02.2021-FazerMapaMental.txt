@@ -1,0 +1,83 @@
+Conceitos:
+
+Qual a vantagem de buscar organização no desenvolvimento do software?
+Entregar software de qualidade.
+
+Software de qualidade é:
+*mais fácil de utilizar : pro usu final e pro desenvolvedor trabalhar. 
+*Com funcionamento correto
+*Fácil manutenção
+*mantém Integridade dos Dados
+
+--------
+
+Paradigmas de programação: é um forma de classificar as linguagens por suas característas
+
+--------
+
+Dois tipos de paradigmas: 
+
+Declarativo 
+O programador apenas declara propriedades do resiultado desejado, mas não como calcular(me dá o resultado); 
+
+Imperativo
+O programador instrui a máquina sobre como alterar seu estado. (é bem mais detalhado). 
+
+--------
+
+Classificações mais específicas:
+
+     Declarativo 	 
+    |		|        
+Funcional     Lógico
+
+Ex:
+Funcional: LISP(1958), Haskell(1990)
+Lógico: Prolog(1972), Datalog(1990)
+Data-Driven: SQL para BD
+  |>Orientado a dados
+
+     Imperativo
+     |	        |        
+Procedural     Orientado à objeto
+
+Ex: 
+Procedural: Cobol, Fortran, Algol, C 
+Orientado à objeto: Simula(1962), SmallTalk(1969)
+
+--------
+
+Multiparadigma: paradigmas diferentes podem ser aplicados com a msm linguagem
+PHP, python, C++, Java... 
+
+VAmos trabalhar com poo
+
+
+POO - porque é tão popular?
+
+Eficiência comprovada de seu propósito:
+Tem uma "forma" para se organizar
+
+
+Não é impossível de aprender:
+
+Muitas linguagens suportam conceitos de OO:
+
+Apesar de POO ter mais consumo do que Procedural, isso não é o que mais importar, porque o resultado é melhor. 
+Se aprende algo mais complexo pra fazer algo mais fácil tanto para o usufinal quanto ao dev
+
+POO - não serve pra tudo, mas aonde serve, consegue falcilitar um pouco algo bem difícil, o desenvolvimento de software
+
+----
+
+POO origens
+
+Simula 67 
+Desenvolvida entre 1962 - 1968
+por Kristen Nygaard e Ole-Johan Dahl (Noruega)
+Conceitos refinados para a linguagem SmallTalk(1969)
+
+Busca representar objetos ou fatos do mundo real.
+POO tem Atributos(características) e métodos (comportamento)
+
+
