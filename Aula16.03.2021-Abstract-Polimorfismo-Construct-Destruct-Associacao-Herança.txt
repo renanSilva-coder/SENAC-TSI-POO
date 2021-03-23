@@ -1,0 +1,207 @@
+Relação de Dependência 
+
+É quando uma classe usa um objeto de outra classe, e uma classe depende da outra, dá erro em uma sem a outra:
+
+O construtor é um método que é processado automáticamente ao instanciar a classe, e ele acontece apenas uma vez.
+
+O método construtor é sempre publico 
+
+representação no diagrama:
+
+_____________			__________________________
+|_Classe_____|                	|___ClasseDoConstrutor____| 
+|_#atributos_|----------------->|______+atributos_________| 
+|_+metodos___|			|_ __construtor(objClasse)| 
+OBS: essa linha COM tracejado e flecha ABERTA
+
+exemplo de construtor:
+
+class XicaraCorinthiana extends Xicara{
+    private $frase = 'Vai corinthians';
+    
+    public function setFrase(): bool{
+        $this->frase = 'Gaviões da Fiel';
+        return true;
+    }
+
+    public function getFrase(){
+        return $this->frase;
+    }
+}
+
+class XicaraParaEntrega {
+    private $objXicaraParaEntrega;
+
+    public function __construct($objXicaraParaEntrega){
+        echo "\nConstrutor executado!\n";
+        $this->objXicaraParaEntrega = $objXicaraParaEntrega;
+    }
+}
+
+$xiCorinthians =  new XicaraCorinthiana;
+$xiCorinthians->setFrase();
+$xicaraParaEntrega =  new XicaraParaEntrega($xiCorinthians);
+echo "\n\nA frase é: ". $xiCorinthians->getFrase() . "\n\n";
+
+
+O que gera a relação de dependência é o fato de você passar como parâmetro um objeto, logo ele necessita daquele objeto para seguir
+
+
+QUANDO TERMINA O CÓDIGO PHP DE UM CÓDIGO ELE É DESTRUÍDO, VC PODE FAZER ÚLTIMAS AÇÕES 
+COM:
+
+public function __destruct(){
+    echo "\nDestrutor executado!\n";
+}
+
+Quando termina o script ele executa isso.
+vc pode usar isso para salvar os dados no banco;
+
+EXEMPLO: 
+class XicaraParaEntrega {
+    private $objXicaraParaEntrega;
+
+    public function __construct($objXicaraParaEntrega){
+        echo "\nConstrutor executado!\n";
+        $this->objXicaraParaEntrega = $objXicaraParaEntrega;
+    }
+
+    public function __destruct(){
+        echo "\nDestrutor executado!\n";
+    }
+}
+
+
+ASSOCIAÇÃO:
+
+Quando uma classe precisa de outra para fazer uma função por exemplo.
+class XicaraParaEntrega {
+    private $objXicaraParaEntrega;
+
+    public function __construct($objXicaraParaEntrega){
+        echo "Construtor executado!<br>";
+        $this->objXicaraParaEntrega = $objXicaraParaEntrega;
+    }
+
+    public function vender(){
+    }
+
+    public function __destruct(){
+        echo "<br>Destrutor executado!<br>";
+    }
+}
+
+class Vendedor{
+    private $nome;
+    
+    public function anotaValores(){
+    }
+
+    public function tirarDuvidas(){
+    }
+
+    public function vendaDeXicaras($objXicaraParaEntrega){
+        $objXicaraParaEntrega->vender();
+    }
+}
+
+$xiCorinthians =  new XicaraCorinthiana;
+$xiCorinthians->setFrase();
+$xicaraParaEntrega =  new XicaraParaEntrega($xiCorinthians);
+$james = new Vendedor;
+echo "<br>A frase é: ". $xiCorinthians->getFrase() . "<br>";
+
+AO INSTÂNCIAR O VENDEDOR NADA MUDA, E NÃO DÁ ERRO.
+===============================================================
+COMO AS CLASSES TROCAM MENSAGENS ENTRE SI:
+
+	TROCA DE MENSAGENS
+
+Comunicação entre objetos.
+Por passagem de parâmetros 
+E.: objUsuario->gravar(param1,..,paramN);
+
+	ABSTRAÇÃO
+
+Uma identidade(conjunto de atributos e metodos(uma classe)) deve ser única dentro do sistema
+
+Ex.: separação de atributos e métodos de pessoas, onde haver pessoa física e jurídica. 
+ou seja, 
+na Herança: Separação de características em classes:
+Classe p/ características gerais
+   ||  ||     ||          específicas 
+
+Quando uma classe é Abstrata ela não pode ser instanciada. Só posso acessar seus dados instanciando outras classes que herdam dela.:
+abstract class Pessoa {
+    protected $nome;
+    protected $endereco;
+
+    public function enviarCorrespondencia(){}
+
+    public function receberCorrespondencia(){}
+} 
+
+se vc der um $joao = new Pessoa; VAI DAR ERRO. pois quando voce quer uma classe que não pode ser instanciada, usa-se o abstract. 
+
+<?php
+interface iPessoa{
+    public function enviarCorrespondencia();
+    public function receberCorrespondencia();
+}
+
+abstract class Pessoa {
+    protected $nome;
+    protected $endereco;
+
+    public function enviarCorrespondencia(){
+        sleep(3);//dá uma delay de 3 segundos e vai pra próxima linha de comando
+        echo "<br>carta ----------> destino <br>";
+    }
+    public function receberCorrespondencia(){}
+}
+
+class PessoaFisica extends Pessoa{
+    private $cpf;
+    private $imc;
+
+    public function praticaExercicio(){}
+    public function comer(){}
+}
+
+class PessoaJuridica extends Pessoa{
+    private $cnpj;
+    private $nomeFantasia;
+
+    public function abrirFilial(){}
+    public function fecharFilial(){}
+}
+
+$joao = new PessoaFisica;
+var_dump($joao);
+$joao->enviarCorrespondencia();
+ASSIM COMO ESTÁ ACIMA FUNCIONA
+
+	POLIMORFISMO
+
+Várias formas;
+Tem vários tipos.
+Pode ser quando o mesmo método tem implementações diferentes: 
+Enviar correspondencia pode ser diferente para pessoa fisica e juridica então suas implementações podem ser diferentes:
+FAZENDO COM A PESSOA FISICA:
+class PessoaFisica extends Pessoa{
+    private $cpf;
+    private $imc;
+
+    public function enviarCorrespondencia(){
+        echo "<br>Vai Até a agência dos Correios<br>";
+        echo "<br>Fica 45horas na fila!<br>";
+        echo "<br>Tem o pacote roubado<br>";
+    }
+    public function praticaExercicio(){}
+    public function comer(){}
+}
+Ao fazer $joao->enviarCorrespondencia(); ele traz somente o enviarCorrespondencia da classe mais específica
+
+
+
+

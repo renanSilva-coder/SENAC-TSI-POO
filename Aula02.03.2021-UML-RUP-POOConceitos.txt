@@ -1,0 +1,131 @@
+Aula 3 - UML ( Unified Modeling Language )
+
+Linguagem de modelagem de sistema geral.
+Maneira de padrão fornecer de visualizar o projeto de um sistema
+Conjunto de diagramas pra mostrar o que é o sistema (mesmo que a pessoa não seja programador)
+
+====================================================================
+
+UML e RUP
+|>objetivo de facilitar o desenvolvimento de software, documentação disso incluso.
+
+Criados pela Reational Software Corporation , comprada pela IBM em 2003
+
+
+===
+RAIZ DO UML
+
+é a programação orientada em objeto
+UML nasceu para representar softwares que seguem a estrutura de POO, e serve para isso. (apesar de ter por aí diagramas UML que foram tirados de programas que não usam POO)
+
+===
+RUP metodoliga de gestão desenvolvida pela empresa para gerenciar os projetos, acabou descontinuada. utizamos hoje metodos ágeis.
+Enquando UML são os diagramas, formas de representar softwares pra qualquer um
+
+===
+Objetivo - Objetivo é fornecer uma maneira padrão de visualizar o projeto. e são diagramas, formas de representar softwares pra qualquer um
+
+====
+Usando elementos como: Atividades
+Componentes individuais do sistema e como ele podem interagir com outros compenentes de software
+como o sistema funcionará
+Como as entendidades interagem com os outros (componentes e interface)
+Interface do usuário
+
+====
+USO INCORRETO
+
+Projetar todo o sistema com ele
+
+Assumir que os novatos possam projetar com UML
+Precisa entender de POO pra fazer UML pq ele representa projetos em POO, pq vc como vc vai representar algo que não entende.
+
+
+=========
+TIPOS DE DIAGRAMAS : 
+Estruturais (estáticos) 
+estrutura estática usando os objetos
+Seus componentes e atributos definidos
+operações e relacionamentos
+
+Comportamentais
+Comportamento dinamico do sistema
+colaboração entre objetos e alterações nos estados internos dos objetos
+
+
+======
+
+método: é uma função dentro de uma classe.
+fora da classe chama função, apesar de quando se dizer função pensarem geralmente em método, programadores mais de POO.
+
+=======
+Exemplos de diagramas:
+
+ESTRUTURAIS (estáticos): 
+mais popular: 
+*diagrama de classes
+características:
+*Principal componente da modelagem OO.
+*Descreve a estrutura de um sistema mostrando as classes do sistema, seus atributos, funções (metodos) e os relacionamentos entre objetos
+*Pode ser usado para representar modelagem de dados. 
+
+======
+Visibilidade
+no diagrama:
++ é public
+- é private
+# é protected
+~ é package
+
+no codido (PHP)
+public $qtdComodos = 20;
+private $cofreSenha = 'bahia';
+protected $ingredientesDaCozinha;
+
+PROTECTED: ela vai pra quem herda a classe e para a propria classe somente
+
+Objeto é como uma planta de uma casa e a classe é como a casa dessa planta. Eu utilizo esse objeto construído pra fazer muitas casas específicas. Com o operador new vc transforma a classe em objeto
+
+em PHP: 
+$objCasa = new Planta;
+echo "Quantidade de Cômodos: " . $objCasa->qtdComodos;
+
+Pensando que isso está em outro arquivo, é necessário atenção para a disponibilidade de atributos e métodos da classe quando os chamar.
+
+Se estiver public pode-se fazer como está acima, caso esteja private precisa criar um método 
+public function getAtributo()
+{
+    return $this->atributo
+}
+
+e usar:
+
+echo "Quantidade de Cômodos: " . $objCasa->getQtdComodos();
+
+ENCAPSULAMENTO: usando o private se faz isso.
+
+Para alterar podemos criar uma função set:
+public function setAtributo($atributox)
+{
+    this->atributo = $atributox;
+    return true;
+}
+
+$objCasa = new Planta;
+
+$objCasa->setQtdComodos(355);
+echo "Quantidade de Cômodos: " . $objCasa->getQtdComodos();
+
+usa-se a -> quando chamar 
+
+======
+MÉTODOS E ATRIBUTOS ESTÁTICOS são aqueles que posso acessar sem ter que instanciar a classe com obj.
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,203 @@
+Métodos estáticos:
+Exemplo simples:
+
+<?php
+class Campeonato{
+
+    private $dataInicio = '09/03/2021';
+    private static $local = 'São Paulo';
+    public $qtdTimes;
+    private $trofeu = 'Brasileirão';
+
+    public function getData(): string{
+        return $this->dataInicio;
+    }
+
+    public function setData($data): bool{
+        $this->dataInicio = $data;
+        return true;
+    }
+
+    //MÉTODO ESTÁTICO
+    static public function setLocal($local): bool{
+        self::$local = $local;
+        return true;
+    }
+
+    //MÉTODO ESTÁTICO
+    static public function getLocal(): string{
+        return self::$local;
+    }
+}
+
+//Métodos e atributos normais
+$camp = new Campeonato;
+$dataAlterada = '11/04/2022';
+$camp->setData($dataAlterada);
+
+echo "Data do campeonato: ". $camp->getData(); 
+
+//métodos e atribbutos estáticos
+Campeonato::setLocal('Rio de Janeiro');
+echo 'O local do campeonato é: '. Campeonato::getLocal();
+
+Usar método estático significa que podemos acessar o conteúdo(métodos e atributos) da classe sem precisar instânciar um objeto, e como se pode ver um parâmetro opcional (estático (static)), um atributo estático, não importa se é privado, pode ser acessado por todos os métodos da classe. Também esse atributo static só posso usar o self::$atributo;, para os que não são static, normalmente use o $this->atributo;
+
+
+para usar o $this tem que ser um por um método e necessitar ser instanciado, ou seja, não dá pra usar o $this em método static. 
+===========================================
+
+Tem como testar o código php no terminal: 
+na pasta do arquivo escreva 'php arquivo.php' e enter que ele roda.
+
+GENERALIZAÇÃO:
+ Eu tenho uma classe genérica e eu possa herdar essa classe genérica em outra classe para fazer algo mais específico.
+
+Representação desse tipo de relacionamento:
+_____________			  _____________
+|_classe_B___|_________________I\ |_classe_A___| obs.: essa é uma 
+|_#atributos_|		       I/ |_+atributos_| linha normal com 
+|_+metodos___|			  |_+metodos___| seta fechada
+
+Classe B herda de Classe A 
+
+Exemplo:
+<?php
+
+class Campeonato{
+ 
+    protected $dataInicio;
+    protected $continente;
+    protected $qtdTimes;
+    protected $times = [];
+    protected $trofeu;
+
+    public function getDataInicio() : string{
+        return $this->data;
+    }
+
+    public function setDataInicio($data) : bool{
+        $this->data = $data;
+        return true;
+    }
+    
+} 
+
+class Mundial extends Campeonato{
+    private $confederacao;
+
+    public function setConfederacao(string $confederacao): bool{
+        $this->confederacao = $confederacao;
+        return true;
+    }
+
+}
+
+$mundial = new Mundial;
+$mundial->setDataInicio('14/04/2022');
+
+echo "\n\nA data de início do Mundial é: ".$mundial->getDataInicio()."\n\n";
+
+
+OUTRO EXEMPLO:
+
+<?php
+
+class CoposDeCozinha{
+    protected $material;
+    protected $qtdTotal;
+    protected $tamanhoMedio;
+    protected $categDesenho = 'geral';
+
+    public function setMaterial( string $material ) : bool{
+        $this->material = $material;
+        return true;
+    }
+
+    public function getMaterial() : string{
+        return $this->material;
+    }
+
+    public function setCategDesenho(string $categDesenho) : bool{
+        $this->categDesenho = $categDesenho;
+        return true;
+    }
+
+    public function getCategDesenho() : string{
+        return $this->categDesenho;
+    }
+
+}
+
+class Xicaras extends CoposDeCozinha{
+    private $tipoDeAlca;
+
+    public function setTipoDeAlca(string $tipoDeAlca) : bool{
+        $this->tipoDeAlca = $tipoDeAlca;
+        return true;
+    }
+
+}
+
+class XicaraCorinthiana extends Xicara{
+    private $frase = 'Vai corinthians';
+    
+    public function setFrase(): bool{
+        $this->frase = 'Gaviões da Fiel';
+        return true;
+    }
+
+}
+
+INTERFACE DE ORIENTAÇÃO À OBJETOS:
+DEFINE COMO QUE UM CÓDIGO INTERAGE COM UMA DETERMINADA CLASSE, ESPECIFICANDO O QUE MINHA CLASSE TEM QUE TER OBRIGATÓRIAMENTE;
+PODE-SE COLOCAR ATRIBUTOS E METODOS NA INTERFACE, se colocá-los la vai definí-los como obrigatórios.
+
+interface iCoposDeCozinha {
+
+    public function setMaterial(string $material);
+    public function getMaterial();
+
+}
+
+class CoposDeCozinha implements iCoposDeCozinha{
+    protected $material;
+    protected $qtdTotal;
+    protected $tamanhoMedio;
+    protected $categDesenho;
+
+    public function setMaterial( string $material ) : bool{
+        $this->material = $material;
+        return true;
+    }
+
+    public function getMaterial() : string{
+        return $this->material;
+    }
+}
+
+Quando eu uso uma interface eu tenho que obrigatóriamente usar o implements na classe
+Por mais que uma classe2 herde outra classe1 que tem a implementação da interface, ao criar o metodo que está na interface da classe1 dentro da classe2, vai dar erro, pois a classe2 não está implementando a interface.
+
+Se eu colocar um metodo que não existe em nenhuma classe na interface, VAI DAR ERRO, pq o que está na interface é obrigatório ter na classe que se está implementada a interface.
+
+Os metodos da interface precisam ser public, mas no php se vc colocar o function direto o php ja define como public
+
+
+REPRESENTAÇÃO NO DIAGRAMA:
+Representação desse tipo de relacionamento:
+
+Quando todos os métodos e atributos da classe são exatamente os mesmos que os da interface;
+_____________			
+|_classe_A___|                	         OBS.:
+|_#atributos_|------------------O(bola ) essa linha é COM tracejado
+|_+metodos___|			 (vazia)
+
+Quando algum método ou atributo difere:
+
+_____________			_____________
+|_classeA____|                	|_iClasseA___| OBS:
+|_#atributos_|----------------->|_+atributos_| essa linha COM tracejado
+|_+metodos___|			|_+metodos___| e flecha fechada
+
+

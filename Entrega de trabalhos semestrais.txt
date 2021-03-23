@@ -1,0 +1,16 @@
+Entrega de trabalhos
+
+1°: 
+para: 16/03
+tarefa: criar um repositóio a parte(do repo da aula) e subir o projeto em código procedural. Ele vai ser usado para contruir as outras entregas que vão ser alterações nesse projeto.
+
+2°: 
+para: ?
+tafera: primeira adapatação desse código para orientação à objeto.
+
+3°: 
+para: ?
+tafera: um avanço maior desse trabalho, aplicando mais conceitos no projetos
+
+objetivo: transformar esse projeto de código procedural para O.O.
+
