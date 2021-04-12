@@ -1,0 +1,68 @@
+FICHAMENTO DE UML - diagramas
+
+(diagramas Estáticos)
+
+Diagrama de CLASSE:
+É uma representação estática utilizada para descrever a estrutura de um sistema, apresentando suas classes, atributos, operações e as relações entre os objetos.
+
+Diagrama de COMPONENTES:
+Diferente do diagrama de classes, o diagrama de componente consegue representar a visão geral de um sistema com mais facilidade.
+Aqui divide-se as funcionalidades em componentes
+nesse diagrama tem-se elementos como: componente, conector, plug, associação(flechinha com nome)
+
+Diagrama de ESTRUTURA COMPOSTA
+Você conseguir mostrar o algoritmo que está dentro da classe;
+Mostar a implementação de um método. Algo que o diagrama de classes não faz.
+Ou seja, EXPLICA O FUNCIONAMENTO DO MÉTODO
+
+Diagrama de IMPLANTAÇÃO
+Implantação física de artefatos
+Mostra tudo que precisa pra instalar o sistema: Servidor do BD, Servidores Web para API, Servidores para aplicação Web, Browser, Smart Phone.
+
+Diagrama de OBJETO
+Explica um sistema OO em execução: mostrando os objetos, com os valores de seus atributos e as ligações entre eles.
+É usado quando não dá pra entender o resultado que será obtido pelo diagrama de classe.SERVE MUITO PARA VER OS DADOS como: data = 01/01/2003 idPedido = 223 e outros. Dá pra mostrar associações(relações entre os dados).
+
+Diagrama de PACOTE (dependências)
+Mostra todas as dependências necessárias para executar o software;
+Ex.: drivers ; Java pra o programa de Declaração de Imposto de Renda; Servidor ; bibliotecas(nextjs, node) ; tds as deppendências.
+
+Diagrama de PERFIL(metamodelo)
+É um Meta modelo, ou seja, um modelo que descreve outros modelos
+METADADO: são dados sobre outros dados.
+Exemplo:dado 	mp3 (musica em si) 
+		metadado: info sobre a musica (album, letra, etc)
+o metadado descreve o dado;
+Quando vc quer representar algo que não tem no UML
+
+
+
+(diagramas comportamentais)
+
+Diagrama de ATIVIDADE
+É um gráfico que mostra o fluxo de informação.
+Pra gente conseguir modelar etapas em um processo computacional
+Ênfase ao fluxo de controle de uma atividade para outra
+Nada mais que um FLUXOGRAMA
+
+Diagrama de SEQUÊNCIA:
+Representa a sequência de processo e as mensagens trocadas no tempo.
+Representar interações entre objetos
+Elementos básicos: :Fronteira ; :Controle ; :Entidade
+
+Diagrama de CASO DE USO:
+Representa a interação de um usuário com o sistema, em vários casos de usos neste sistema.Ex.: Num e-commerce, caso1: cliente comprando algo; caso2: adm gerenciando estoque. Representado por bonecos de palitos, elipses e circulos
+
+Diagrama de COMUNICAÇÃO:
+Representam uma combinação de informações extraídas dos diagrams de classe, sequência e caso de uso.
+
+Diagrama de VISÃO GERAL DA INTERAÇÃO
+Semelhante ao diagrama de atividades(fluxograma), pois ambos vizualizam uma sequencia de atividades. Ele comprime algumas partes do fluxograma, utiliza de outros diagramas para mostrar com VISÃO AMPLA o fluxo de atividades do sistema, não tem foco nos dados.
+
+Diagrama de ESTADO (State Machine)
+Estado da máquina, fala de coisas físicas. Ex.: De um caixa eletrônico, de um teclado (funcionamento do caps_lock)
+Mais utilizável para quem trabalha com hardware.
+
+Diagrama de TEMPO
+Detalha o que ta acontecendo mas com precisão temporal.
+

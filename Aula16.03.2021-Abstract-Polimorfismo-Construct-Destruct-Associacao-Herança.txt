@@ -2,7 +2,7 @@ Relação de Dependência
 
 É quando uma classe usa um objeto de outra classe, e uma classe depende da outra, dá erro em uma sem a outra:
 
-O construtor é um método que é processado automáticamente ao instanciar a classe, e ele acontece apenas uma vez.
+O CONSTRUCTOR é um método que é processado automáticamente ao instanciar a classe, e ele acontece apenas uma vez.
 
 O método construtor é sempre publico 
 
@@ -70,6 +70,8 @@ class XicaraParaEntrega {
         echo "\nDestrutor executado!\n";
     }
 }
+
+ISSO ACONTECE OFICIALMENTE QUANDO A CLASSE DEIXA DE EXISTIR
 
 
 ASSOCIAÇÃO:
@@ -186,6 +188,9 @@ ASSIM COMO ESTÁ ACIMA FUNCIONA
 Várias formas;
 Tem vários tipos.
 Pode ser quando o mesmo método tem implementações diferentes: 
+Seria "reescrever" um método 
+Que eu estou herdando 
+
 Enviar correspondencia pode ser diferente para pessoa fisica e juridica então suas implementações podem ser diferentes:
 FAZENDO COM A PESSOA FISICA:
 class PessoaFisica extends Pessoa{

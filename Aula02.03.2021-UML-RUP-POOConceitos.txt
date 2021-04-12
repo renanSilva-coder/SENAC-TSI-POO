@@ -50,7 +50,7 @@ operações e relacionamentos
 
 Comportamentais
 Comportamento dinamico do sistema
-colaboração entre objetos e alterações nos estados internos dos objetos
+Colaboração entre objetos e alterações nos estados internos dos objetos
 
 
 ======

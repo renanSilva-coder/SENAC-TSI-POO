@@ -4,7 +4,7 @@ interface iCasaInteligente{
     public function limpaSe(): void;
 }
 
-abstract class CasaInteligente {
+abstract class CasaInteligente implements iCasaInteligente{
     protected $altura;
     protected $largura;
     protected $area;
