@@ -21,11 +21,36 @@ class Usuario extends TipoPessoa implements iUsuario{
         return true;
     }
 
-    public function gravarDados(){
+    
+
+    public function gravarDados(): bool{
+      
         if (empty($this->id)){//verifica se o id é vazio
             return $this->insert();
         }else{
             return $this->update();
+        }
+    
+    }
+
+    public function delete(): bool{
+        if($this->id){
+            
+            $stmt = $this->prepare("DELETE FROM usuarios WHERE id_usuario = :id");
+            
+            if( $stmt->execute( [':id'=>$this->id] ) ){
+             
+                return true;
+            
+            }else{
+               
+                return false;
+            }
+        
+        }else{
+         
+            return false;
+       
         }
     }
 
@@ -51,6 +76,7 @@ class Usuario extends TipoPessoa implements iUsuario{
                                     (cpf, nome)
                                 VALUES
                                     (:cpf,:nome)");
+
         if($stmt->execute([':cpf'=>$this->cpf, ':nome'=>$this->nome])){
             return true;
         }
@@ -59,5 +85,14 @@ class Usuario extends TipoPessoa implements iUsuario{
 
     public function getDados(int $id_usuario): array{
 
+    }
+
+    public function getAll(): array{
+        $stmt = $this->prepare("SELECT * FROM usuarios");
+        
+        $stmt->execute();
+         
+        return $stmt->fetchAll(); 
+        
     }
 }
