@@ -1,0 +1,75 @@
+Um software bem sucedido é aquele que tem gente usando, criar uma ferramenta que não serve pra nada ela não tem valor.
+
+Princípios da POO são 5 
+
+SOLID e GRASP
+
+SOLID:
+
+Single Responsability (Responsabilidade Única)
+Uma classe não pode ter mais de um assunto:
+Uma classe de usuário listando produtos não corresponde a esse princípio.
+
+O - Open-Close (Aberto-Fechado)
+
+Construir nossas classes e métodos de forma que não precisemos ficar alterando essas classes e métodos quando formos acrescentar coisas novas:
+Fazer com que não tenha que mexer em alguns pedaços do softaware, assim evitando mais a chance de quebrar o código.
+
+L - Liskov
+Uma classe derivada deve ser substituível por sua classe mãe
+Ex: Eu tenho uma classe Pessoa(classe mãe) e tenho as classes PessoaFisica e PessoaJurídica, as calsses filhas precisam ser substituíveis pela classe mãe, de modo que é preciso todas as funcionalidades essenciais precisam estar na classe mãe.
+
+Ex.: a gente usa classe abstrata para atender ao princípio de liskov  
+
+
+I - Interface Segregation (Segragação de Interface)
+
+É melhor criar uma interface específica ao invés de termos uma única interface genérica.
+Também deve colocar somente coisas necessárias à classe em sua interface
+
+D - Dependency Inversion (Inversão de Dependência)
+
+Abstrações não devem depender de detalhes. 
+Detalhes devem depender de abstrações:
+Não instanciar a classe de Banco de Dados dentro de outra classe.
+Quando vc precisar usar algo de uma classe dentro de outra, vc passa um obj pronto dela pra essa outra classe.
+
+			<--------->
+
+GRASP
+
+São diretrizes para atribuição de responsabilidades às classes e objetos na POO.
+
+No GRASP é diferente: Ele defende que vc tem que ter um Controlador (Um Controller), que é definido como primeiro objeto além da camada da interface do usuário que recebe e controla uma operação do sistema. 
+Ou seja o controller, no sistema, vai distribuir o trabalho, gerenciando as requisições do sistema atribuindo cada função a outras partes do programa.
+
+CREATOR
+É um padrão de projeto, ou Factory, é ter uma classe que instancia outras classes, te retorna um objeto.
+
+Indirection
+
+Ter sempre componentes fazendo imediação. No laravel, tem a controller que lida com as requisições, e fica mediando entre a model que trabalha com os dados, e entre as views que exibe a interface ao usuário.
+Essas são camadas de imediação.
+
+Information Expert
+Defende que tem que ter uma camada de especialização de informação, quem tem a especialidade para lidar com determinada informação, delimitando quem tem a responsabilidade de lidar com essas certas informações. Ex.: Dados de usuário é a model de usuário que mexe com eles, e não de, por exemplo, compras feitas pelo usuários, isso teria que estar em uma classe de compras
+
+High Coehsion (Alta Coesão) 
+Quanto maior for sua coesão menor será seu acoplamento. Baixo acoplamento significa ter o menor risco de mexer em algum lugar e quebrar outro.
+
+Low Coupling
+
+É o Baixo Acoplamento, menor dependência entre classes para melhor reutilização do código no mesmo programa e menor risco de quebrar o código.
+
+Polymorphism (Polimorfismo)
+
+Uma classe que mexe com formatos geométricos.
+Essa diretriz defende que devo ter uma interface formaGeométrica que todas as classes de quadrado, retângulo, circulo tenham ela implementada. E na interface tem o método obrigatório de calcular área por exemplo :-)
+
+Protected Variations (Variações Protegidas)
+ 
+Protege os elementos das variações de outros elementos(objs, sistemas, subsistemas), isolando responsabilidades, atendendo ao Open-close do SOLID
+
+Pure Fabrication
+
+Uma classe que não está muito ligada ao problema que eu quero resolver com o sistema, ela só serve para deixar o programa menos acoplado.
